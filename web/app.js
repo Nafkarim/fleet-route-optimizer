@@ -16,6 +16,10 @@
     polling: null,
   };
 
+  // Static demo build (scripts/export_static.py): read the saved plan from JSON files, no backend.
+  const STATIC = document.documentElement.dataset.static === "1";
+  let staticDetails = null;
+
   // ------------------------------------------------------------------ formatting
   const nf = new Intl.NumberFormat("en-US");
   const num = (v) => nf.format(Math.round(v));
@@ -413,7 +417,12 @@
     S.selected = id;
     $$(".truck-row").forEach((r) => r.classList.toggle("selected", r.dataset.id === id));
     let d = S.detailCache[id];
-    if (!d) {
+    if (!d && STATIC) {
+      staticDetails = staticDetails || fetch("data/details.json").then((r) => r.json());
+      d = (await staticDetails)[id];
+      if (!d) return;
+      S.detailCache[id] = d;
+    } else if (!d) {
       const r = await fetch(`/api/truck/${encodeURIComponent(id)}`);
       if (!r.ok) return;
       d = S.detailCache[id] = await r.json();
@@ -672,7 +681,7 @@
 
   // ------------------------------------------------------------------ load & render
   async function loadPlan() {
-    const r = await fetch("/api/plan");
+    const r = await fetch(STATIC ? "data/plan.json" : "/api/plan");
     if (!r.ok) return false;
     const P = await r.json();
     S.plan = P;
@@ -761,6 +770,13 @@
   (async function boot() {
     maps.overview = makeMap("overviewMap");
     setSettings(DEFAULTS);
+    if (STATIC) {
+      $("#runBtn").disabled = true;
+      $("#runBtn").title = "Re-optimizing needs the Python backend (./run.sh)";
+      $("#drawer .hint").innerHTML = "This is a read-only demo of a saved plan. Re-optimizing runs the Python solver, so it's only available when running the app locally with <code>./run.sh</code>.";
+      await loadPlan();
+      return;
+    }
     const ok = await loadPlan();
     const st = await (await fetch("/api/status")).json();
     if (st.running || !ok) {
