@@ -1,0 +1,501 @@
+location_id,name,city,state,lat,lon,location_type,dock_open_hour,dock_close_hour,avg_dwell_minutes,appointment_required
+L001,Houston Terminal 1,Houston,TX,29.80181,-95.11402,terminal,0,24,30,False
+L002,Dallas Terminal 2,Dallas,TX,32.89819,-96.77569,terminal,0,24,30,False
+L003,San Antonio Terminal 3,San Antonio,TX,29.2871,-98.71323,terminal,0,24,30,False
+L004,Austin Terminal 4,Austin,TX,30.31434,-97.45156,terminal,0,24,30,False
+L005,Atlanta Terminal 5,Atlanta,GA,33.7575,-84.41339,terminal,0,24,30,False
+L006,Chicago Terminal 6,Chicago,IL,41.97572,-87.94978,terminal,0,24,30,False
+L007,Los Angeles Terminal 7,Los Angeles,CA,33.99379,-118.13212,terminal,0,24,30,False
+L008,Phoenix Terminal 8,Phoenix,AZ,33.60721,-112.12294,terminal,0,24,30,False
+L009,Memphis Terminal 9,Memphis,TN,35.21779,-89.99539,terminal,0,24,30,False
+L010,Nashville Terminal 10,Nashville,TN,36.30082,-87.02491,terminal,0,24,30,False
+L011,Indianapolis Terminal 11,Indianapolis,IN,39.87229,-86.49319,terminal,0,24,30,False
+L012,Columbus Terminal 12,Columbus,OH,39.48841,-83.13352,terminal,0,24,30,False
+L013,Kansas City Terminal 13,Kansas City,MO,38.93515,-94.38728,terminal,0,24,30,False
+L014,St. Louis Terminal 14,St. Louis,MO,38.74957,-90.4682,terminal,0,24,30,False
+L015,Denver Terminal 15,Denver,CO,39.89253,-105.21048,terminal,0,24,30,False
+L016,Charlotte Terminal 16,Charlotte,NC,35.21448,-80.90466,terminal,0,24,30,False
+L017,Jacksonville Terminal 17,Jacksonville,FL,30.3506,-81.4799,terminal,0,24,30,False
+L018,Miami Terminal 18,Miami,FL,25.87491,-80.11303,terminal,0,24,30,False
+L019,Orlando Terminal 19,Orlando,FL,28.65699,-81.27473,terminal,0,24,30,False
+L020,New Orleans Terminal 20,New Orleans,LA,29.83714,-90.22782,terminal,0,24,30,False
+L021,Oklahoma City Terminal 21,Oklahoma City,OK,35.38541,-97.41015,terminal,0,24,30,False
+L022,Little Rock Terminal 22,Little Rock,AR,34.70498,-91.77613,terminal,0,24,30,False
+L023,Birmingham Terminal 23,Birmingham,AL,33.37253,-87.04175,terminal,0,24,30,False
+L024,Louisville Terminal 24,Louisville,KY,38.38833,-85.44719,terminal,0,24,30,False
+L025,Detroit Terminal 25,Detroit,MI,42.42102,-82.86612,terminal,0,24,30,False
+L026,Minneapolis Terminal 26,Minneapolis,MN,45.23674,-93.29069,terminal,0,24,30,False
+L027,Harrisburg Terminal 27,Harrisburg,PA,40.01387,-76.99706,terminal,0,24,30,False
+L028,Newark Terminal 28,Newark,NJ,40.91152,-74.48761,terminal,0,24,30,False
+L029,El Paso Terminal 29,El Paso,TX,31.76604,-106.43429,terminal,0,24,30,False
+L030,Laredo Terminal 30,Laredo,TX,27.47319,-99.3208,terminal,0,24,30,False
+L031,Denver Terminal 31,Denver,CO,39.84454,-104.47929,terminal,0,24,30,False
+L032,Houston Terminal 32,Houston,TX,29.87159,-95.50407,terminal,0,24,30,False
+L033,Chicago Terminal 33,Chicago,IL,41.77888,-87.81295,terminal,0,24,30,False
+L034,Atlanta Terminal 34,Atlanta,GA,33.92141,-84.5147,terminal,0,24,30,False
+L035,Orlando Terminal 35,Orlando,FL,28.52735,-81.21515,terminal,0,24,30,False
+L036,Jacksonville Terminal 36,Jacksonville,FL,30.19978,-81.7246,terminal,0,24,30,False
+L037,Minneapolis Terminal 37,Minneapolis,MN,44.64857,-93.50815,terminal,0,24,30,False
+L038,Dallas Terminal 38,Dallas,TX,32.67781,-96.70853,terminal,0,24,30,False
+L039,Memphis Terminal 39,Memphis,TN,35.36483,-90.05406,terminal,0,24,30,False
+L040,Houston Terminal 40,Houston,TX,29.80705,-95.33305,terminal,0,24,30,False
+L041,Dallas DC 41,Dallas,TX,32.55791,-97.07992,consignee,7,20,127,True
+L042,Chicago DC 42,Chicago,IL,41.47373,-87.80254,consignee,8,18,154,True
+L043,Chicago Store Hub 43,Chicago,IL,41.88792,-87.61513,both,6,22,153,True
+L044,Dallas Plant 44,Dallas,TX,32.53609,-97.09923,consignee,5,18,153,True
+L045,Oklahoma City DC 45,Oklahoma City,OK,35.46402,-97.52141,shipper,0,24,192,False
+L046,Louisville DC 46,Louisville,KY,38.22801,-85.68891,both,0,24,148,False
+L047,El Paso Mill 47,El Paso,TX,31.66864,-106.51327,consignee,5,18,118,False
+L048,Newark Store Hub 48,Newark,NJ,41.01238,-74.32944,consignee,6,20,227,False
+L049,Memphis Warehouse 49,Memphis,TN,35.05914,-90.06231,shipper,0,24,126,True
+L050,Atlanta DC 50,Atlanta,GA,33.97933,-84.25596,shipper,6,16,116,True
+L051,Indianapolis Mill 51,Indianapolis,IN,39.49016,-86.24606,both,7,17,157,False
+L052,Atlanta Cross-Dock 52,Atlanta,GA,33.9068,-84.25634,consignee,0,24,138,False
+L053,Dallas Plant 53,Dallas,TX,32.64585,-96.68495,both,5,17,119,True
+L054,Austin Mill 54,Austin,TX,29.91335,-97.63572,shipper,0,24,55,False
+L055,Louisville Plant 55,Louisville,KY,38.65337,-85.85727,both,7,20,112,False
+L056,Minneapolis Cross-Dock 56,Minneapolis,MN,44.98604,-93.25758,consignee,6,20,142,False
+L057,Oklahoma City Plant 57,Oklahoma City,OK,35.36069,-97.7361,shipper,0,24,124,True
+L058,Orlando Mill 58,Orlando,FL,28.76324,-81.27755,consignee,5,16,204,True
+L059,Austin DC 59,Austin,TX,30.04676,-97.92551,shipper,8,17,124,True
+L060,Dallas Warehouse 60,Dallas,TX,32.65229,-97.0372,shipper,5,18,84,True
+L061,Charlotte DC 61,Charlotte,NC,35.18151,-80.65758,both,0,24,109,False
+L062,Laredo Warehouse 62,Laredo,TX,27.64166,-99.41233,shipper,0,24,178,True
+L063,San Antonio Store Hub 63,San Antonio,TX,29.56097,-98.78666,consignee,8,16,137,True
+L064,Harrisburg DC 64,Harrisburg,PA,40.56381,-76.60653,shipper,8,17,88,False
+L065,Miami Cross-Dock 65,Miami,FL,25.83338,-79.89114,shipper,6,16,64,True
+L066,Chicago Warehouse 66,Chicago,IL,42.18904,-87.62158,consignee,5,20,121,True
+L067,Houston Mill 67,Houston,TX,30.09204,-95.16244,both,0,24,167,True
+L068,San Antonio DC 68,San Antonio,TX,29.52758,-98.35441,both,6,17,139,False
+L069,Los Angeles Store Hub 69,Los Angeles,CA,33.70879,-118.40476,both,5,17,174,False
+L070,Little Rock Warehouse 70,Little Rock,AR,34.77964,-92.32342,both,7,17,87,False
+L071,Dallas Cross-Dock 71,Dallas,TX,33.02723,-97.11312,shipper,6,18,164,False
+L072,Atlanta DC 72,Atlanta,GA,33.65279,-84.57731,shipper,6,18,133,True
+L073,Laredo Warehouse 73,Laredo,TX,27.11497,-99.59746,shipper,5,22,205,True
+L074,Dallas Mill 74,Dallas,TX,32.51354,-96.65801,shipper,8,16,100,True
+L075,Chicago Mill 75,Chicago,IL,41.87732,-87.64237,both,5,18,106,False
+L076,Harrisburg Warehouse 76,Harrisburg,PA,40.08001,-77.10689,shipper,8,18,137,True
+L077,Jacksonville Cross-Dock 77,Jacksonville,FL,30.21932,-81.70814,consignee,5,22,123,True
+L078,Louisville Mill 78,Louisville,KY,38.20894,-85.61745,both,6,20,107,False
+L079,Indianapolis Store Hub 79,Indianapolis,IN,39.89385,-86.69691,both,0,24,89,False
+L080,Denver Warehouse 80,Denver,CO,40.10939,-104.68982,shipper,5,17,73,True
+L081,Laredo Store Hub 81,Laredo,TX,27.29433,-99.7222,consignee,8,17,145,True
+L082,Phoenix DC 82,Phoenix,AZ,33.61477,-111.80153,both,7,17,77,False
+L083,Indianapolis Cross-Dock 83,Indianapolis,IN,39.89955,-86.10831,both,5,20,137,False
+L084,St. Louis Store Hub 84,St. Louis,MO,38.99078,-90.34315,consignee,8,20,166,True
+L085,Minneapolis Plant 85,Minneapolis,MN,44.97186,-93.51943,shipper,6,22,112,True
+L086,Memphis Mill 86,Memphis,TN,35.12012,-90.20663,shipper,0,24,71,True
+L087,Jacksonville Mill 87,Jacksonville,FL,30.31226,-81.73718,consignee,7,20,58,False
+L088,Phoenix Mill 88,Phoenix,AZ,33.50396,-112.59754,shipper,7,20,38,True
+L089,New Orleans Store Hub 89,New Orleans,LA,30.21978,-90.50376,consignee,8,22,183,True
+L090,Chicago Cross-Dock 90,Chicago,IL,41.7021,-87.61033,consignee,5,20,189,False
+L091,Columbus DC 91,Columbus,OH,40.16094,-83.16259,consignee,7,17,175,True
+L092,Chicago Cross-Dock 92,Chicago,IL,41.7874,-87.41577,shipper,6,20,86,True
+L093,Houston Store Hub 93,Houston,TX,29.00772,-95.6025,shipper,0,24,156,False
+L094,New Orleans Plant 94,New Orleans,LA,30.06407,-90.11568,shipper,5,17,111,True
+L095,Newark Mill 95,Newark,NJ,40.60482,-74.13311,consignee,8,16,156,True
+L096,Chicago Cross-Dock 96,Chicago,IL,41.51568,-87.87003,consignee,7,17,60,False
+L097,Denver Mill 97,Denver,CO,39.98839,-104.76384,both,0,24,159,True
+L098,Houston Store Hub 98,Houston,TX,29.50064,-95.43616,shipper,6,16,171,False
+L099,Dallas Store Hub 99,Dallas,TX,33.02804,-96.87624,both,5,20,77,True
+L100,Charlotte Cross-Dock 100,Charlotte,NC,34.92836,-81.1688,both,7,22,88,False
+L101,Birmingham Cross-Dock 101,Birmingham,AL,33.83808,-86.56457,shipper,8,22,137,True
+L102,Indianapolis Warehouse 102,Indianapolis,IN,39.67549,-85.93334,consignee,6,18,178,False
+L103,Chicago Store Hub 103,Chicago,IL,42.3169,-87.5959,shipper,7,20,121,True
+L104,Nashville Warehouse 104,Nashville,TN,36.11339,-87.01303,shipper,5,20,141,True
+L105,Kansas City Store Hub 105,Kansas City,MO,38.88164,-94.53473,consignee,8,18,97,True
+L106,Chicago Store Hub 106,Chicago,IL,41.9151,-87.28096,shipper,8,17,79,False
+L107,Chicago DC 107,Chicago,IL,41.62274,-87.8284,consignee,5,18,83,True
+L108,Houston Mill 108,Houston,TX,29.61916,-95.4075,both,6,17,133,False
+L109,Dallas Warehouse 109,Dallas,TX,32.9268,-96.78615,consignee,5,16,86,False
+L110,Dallas Store Hub 110,Dallas,TX,32.97201,-96.69784,consignee,0,24,73,False
+L111,Newark Cross-Dock 111,Newark,NJ,40.85695,-74.08525,consignee,8,22,158,True
+L112,Columbus Cross-Dock 112,Columbus,OH,39.77469,-82.92722,both,6,22,130,False
+L113,Orlando Store Hub 113,Orlando,FL,28.65625,-81.42856,shipper,0,24,74,True
+L114,Dallas Warehouse 114,Dallas,TX,32.97695,-96.79595,consignee,0,24,84,False
+L115,Miami Store Hub 115,Miami,FL,25.49687,-80.09444,both,8,17,105,True
+L116,Charlotte Plant 116,Charlotte,NC,35.5127,-81.06414,shipper,6,22,151,True
+L117,Chicago Warehouse 117,Chicago,IL,42.07523,-87.39331,consignee,8,22,113,True
+L118,Houston DC 118,Houston,TX,29.61548,-95.28961,shipper,5,22,125,True
+L119,New Orleans Plant 119,New Orleans,LA,30.05233,-90.32975,both,7,22,135,False
+L120,Austin DC 120,Austin,TX,30.05037,-97.89951,consignee,7,18,103,True
+L121,Dallas Store Hub 121,Dallas,TX,32.87853,-96.60805,consignee,7,22,51,True
+L122,Chicago DC 122,Chicago,IL,42.11117,-87.37798,both,8,20,104,True
+L123,Los Angeles Plant 123,Los Angeles,CA,34.06021,-118.54805,both,6,22,70,True
+L124,Detroit Plant 124,Detroit,MI,42.28663,-83.04489,consignee,5,18,121,True
+L125,Dallas DC 125,Dallas,TX,33.17725,-96.82364,consignee,5,20,193,True
+L126,Miami Cross-Dock 126,Miami,FL,25.58184,-80.06213,consignee,8,17,100,False
+L127,Indianapolis Cross-Dock 127,Indianapolis,IN,40.03108,-86.4622,shipper,6,22,88,True
+L128,Miami Plant 128,Miami,FL,25.88384,-80.43708,consignee,7,22,112,True
+L129,New Orleans Store Hub 129,New Orleans,LA,29.6501,-89.7135,both,5,22,100,False
+L130,Memphis Cross-Dock 130,Memphis,TN,35.06537,-89.8235,both,7,17,113,True
+L131,Indianapolis Cross-Dock 131,Indianapolis,IN,39.4634,-86.39841,both,0,24,117,True
+L132,Miami Cross-Dock 132,Miami,FL,25.53836,-80.01804,shipper,6,18,131,True
+L133,Dallas Warehouse 133,Dallas,TX,32.65224,-96.50979,consignee,7,22,51,True
+L134,Denver Cross-Dock 134,Denver,CO,40.28643,-105.3521,both,0,24,153,False
+L135,Dallas Warehouse 135,Dallas,TX,32.85618,-96.63943,shipper,0,24,90,True
+L136,San Antonio Plant 136,San Antonio,TX,29.1919,-98.5453,both,5,16,129,True
+L137,Jacksonville Store Hub 137,Jacksonville,FL,30.0919,-81.65573,shipper,6,20,86,True
+L138,Little Rock Cross-Dock 138,Little Rock,AR,34.97032,-92.48253,shipper,6,22,91,False
+L139,Jacksonville Cross-Dock 139,Jacksonville,FL,30.18291,-81.61001,both,0,24,84,True
+L140,Kansas City Store Hub 140,Kansas City,MO,39.25042,-94.58845,both,7,18,40,False
+L141,Oklahoma City Warehouse 141,Oklahoma City,OK,35.86015,-97.59982,both,5,22,161,True
+L142,Atlanta Store Hub 142,Atlanta,GA,33.74881,-84.02071,both,5,16,184,False
+L143,Chicago DC 143,Chicago,IL,41.65924,-87.52478,both,6,18,150,True
+L144,San Antonio Warehouse 144,San Antonio,TX,28.95451,-98.63382,consignee,5,18,187,False
+L145,Newark Cross-Dock 145,Newark,NJ,40.63817,-73.74303,both,0,24,72,False
+L146,Detroit Mill 146,Detroit,MI,42.24882,-83.65709,both,6,16,158,True
+L147,Columbus Mill 147,Columbus,OH,39.70171,-82.90783,consignee,7,18,66,True
+L148,Houston Plant 148,Houston,TX,29.93261,-95.55781,both,0,24,132,True
+L149,Jacksonville DC 149,Jacksonville,FL,30.27695,-81.74835,shipper,6,20,68,True
+L150,Columbus Store Hub 150,Columbus,OH,39.82739,-82.86358,both,8,20,125,False
+L151,Minneapolis Warehouse 151,Minneapolis,MN,44.78822,-93.61454,consignee,0,24,141,True
+L152,Memphis Warehouse 152,Memphis,TN,35.16489,-89.84197,both,8,18,57,True
+L153,El Paso Plant 153,El Paso,TX,32.07855,-106.61918,shipper,8,16,55,True
+L154,Laredo Mill 154,Laredo,TX,27.55809,-99.6251,both,5,22,82,False
+L155,Los Angeles Plant 155,Los Angeles,CA,34.28209,-117.86193,shipper,5,22,86,True
+L156,Charlotte Plant 156,Charlotte,NC,35.26074,-80.83386,both,8,18,44,True
+L157,Dallas Cross-Dock 157,Dallas,TX,32.70226,-96.74851,shipper,6,22,126,True
+L158,Atlanta Store Hub 158,Atlanta,GA,33.53248,-84.6247,both,8,18,109,False
+L159,Houston Cross-Dock 159,Houston,TX,29.57917,-95.34064,consignee,7,16,183,True
+L160,San Antonio Store Hub 160,San Antonio,TX,29.59676,-98.2707,consignee,6,20,226,True
+L161,Nashville Store Hub 161,Nashville,TN,36.09513,-86.84184,both,8,17,106,False
+L162,Memphis Warehouse 162,Memphis,TN,35.23488,-90.24617,both,7,18,137,True
+L163,San Antonio DC 163,San Antonio,TX,29.4794,-98.52816,both,7,16,150,True
+L164,San Antonio Store Hub 164,San Antonio,TX,29.83928,-98.28718,consignee,0,24,103,False
+L165,Newark Warehouse 165,Newark,NJ,40.38556,-73.94215,shipper,8,18,97,True
+L166,Atlanta Mill 166,Atlanta,GA,33.67906,-84.52062,shipper,6,16,153,True
+L167,Little Rock Mill 167,Little Rock,AR,35.02453,-92.7827,both,8,16,129,False
+L168,Jacksonville Warehouse 168,Jacksonville,FL,30.47145,-81.6282,both,6,16,77,True
+L169,Charlotte DC 169,Charlotte,NC,35.49803,-80.68689,both,8,17,99,True
+L170,San Antonio Mill 170,San Antonio,TX,29.3598,-98.3096,both,0,24,179,True
+L171,New Orleans Cross-Dock 171,New Orleans,LA,30.02066,-90.04208,consignee,7,22,107,True
+L172,New Orleans Store Hub 172,New Orleans,LA,30.09408,-89.91706,shipper,8,20,117,True
+L173,Atlanta Plant 173,Atlanta,GA,33.81013,-84.39721,shipper,5,18,90,True
+L174,Indianapolis Plant 174,Indianapolis,IN,39.68417,-86.11116,consignee,8,22,167,False
+L175,Dallas DC 175,Dallas,TX,32.81418,-96.84938,shipper,6,22,105,True
+L176,Denver Plant 176,Denver,CO,39.69492,-104.77268,both,8,20,167,False
+L177,Dallas Mill 177,Dallas,TX,32.85519,-96.93617,consignee,0,24,102,True
+L178,Los Angeles DC 178,Los Angeles,CA,33.99555,-118.12428,consignee,8,22,79,False
+L179,Los Angeles DC 179,Los Angeles,CA,34.30033,-118.32221,shipper,5,18,79,False
+L180,New Orleans Cross-Dock 180,New Orleans,LA,29.88712,-90.18387,both,7,22,153,True
+L181,Harrisburg Store Hub 181,Harrisburg,PA,40.03504,-77.00318,consignee,6,17,107,True
+L182,Denver DC 182,Denver,CO,39.80912,-105.27197,consignee,6,20,108,True
+L183,Louisville Mill 183,Louisville,KY,38.56872,-85.55615,both,8,22,100,True
+L184,Newark Mill 184,Newark,NJ,40.73638,-74.23352,both,5,18,128,True
+L185,Newark Store Hub 185,Newark,NJ,40.4272,-74.04717,both,0,24,115,True
+L186,Chicago Plant 186,Chicago,IL,41.70096,-87.53977,consignee,6,18,189,True
+L187,Oklahoma City Warehouse 187,Oklahoma City,OK,35.44449,-97.58507,consignee,0,24,94,True
+L188,Phoenix Mill 188,Phoenix,AZ,33.44559,-111.64032,both,5,18,62,False
+L189,Harrisburg Plant 189,Harrisburg,PA,40.17283,-76.58132,consignee,8,16,92,True
+L190,Oklahoma City Store Hub 190,Oklahoma City,OK,35.57365,-97.82216,both,8,16,134,True
+L191,Los Angeles Cross-Dock 191,Los Angeles,CA,33.97624,-118.13458,shipper,5,17,239,True
+L192,Chicago Store Hub 192,Chicago,IL,41.93084,-87.88443,consignee,8,16,136,False
+L193,Denver Store Hub 193,Denver,CO,39.65466,-105.06306,shipper,8,17,146,True
+L194,Los Angeles Store Hub 194,Los Angeles,CA,33.95964,-118.81089,consignee,7,17,118,True
+L195,Little Rock Mill 195,Little Rock,AR,34.41469,-92.20919,consignee,7,20,154,False
+L196,Indianapolis Mill 196,Indianapolis,IN,39.67664,-86.09601,shipper,5,18,55,True
+L197,Los Angeles DC 197,Los Angeles,CA,34.30993,-118.37916,consignee,6,16,153,True
+L198,Minneapolis Plant 198,Minneapolis,MN,45.09608,-93.08142,both,7,18,193,True
+L199,Phoenix Plant 199,Phoenix,AZ,33.32508,-111.91531,shipper,0,24,93,True
+L200,Miami Cross-Dock 200,Miami,FL,25.70835,-80.08371,shipper,5,20,108,True
+L201,Dallas Store Hub 201,Dallas,TX,32.76729,-96.38268,consignee,8,22,105,False
+L202,Atlanta Mill 202,Atlanta,GA,33.84578,-84.27748,consignee,7,16,67,False
+L203,St. Louis Plant 203,St. Louis,MO,38.8455,-90.1727,shipper,6,20,34,True
+L204,Kansas City Warehouse 204,Kansas City,MO,39.20261,-94.27823,consignee,0,24,201,True
+L205,Oklahoma City DC 205,Oklahoma City,OK,35.43356,-97.52213,both,7,18,86,True
+L206,Oklahoma City Mill 206,Oklahoma City,OK,35.30589,-97.22407,consignee,6,17,53,True
+L207,Birmingham Store Hub 207,Birmingham,AL,33.66187,-86.45923,consignee,7,17,162,True
+L208,Oklahoma City Plant 208,Oklahoma City,OK,35.32525,-97.47181,shipper,0,24,93,True
+L209,Phoenix Store Hub 209,Phoenix,AZ,33.53144,-112.29841,shipper,5,18,97,False
+L210,Detroit Cross-Dock 210,Detroit,MI,42.28431,-82.95126,consignee,7,20,95,True
+L211,Jacksonville DC 211,Jacksonville,FL,30.1138,-81.36903,shipper,7,16,106,False
+L212,Austin Warehouse 212,Austin,TX,30.24726,-97.64148,shipper,6,20,128,True
+L213,Jacksonville Warehouse 213,Jacksonville,FL,30.29846,-81.60801,both,8,20,88,False
+L214,Newark Store Hub 214,Newark,NJ,40.96845,-74.02764,consignee,5,16,72,False
+L215,Oklahoma City Warehouse 215,Oklahoma City,OK,35.53556,-97.5022,both,6,20,200,True
+L216,San Antonio DC 216,San Antonio,TX,29.25519,-98.42444,consignee,8,17,118,True
+L217,Charlotte Cross-Dock 217,Charlotte,NC,35.23022,-80.73204,both,8,20,187,True
+L218,Oklahoma City Store Hub 218,Oklahoma City,OK,35.43437,-97.66657,consignee,7,17,69,False
+L219,Nashville Store Hub 219,Nashville,TN,36.31709,-86.92195,shipper,6,18,144,True
+L220,Chicago Store Hub 220,Chicago,IL,41.84746,-87.50749,both,5,18,115,True
+L221,Atlanta Mill 221,Atlanta,GA,33.95455,-84.0921,shipper,8,18,110,False
+L222,Dallas Store Hub 222,Dallas,TX,32.82959,-96.85394,consignee,7,22,103,True
+L223,Kansas City Cross-Dock 223,Kansas City,MO,39.21092,-94.44387,shipper,8,18,70,False
+L224,Columbus Mill 224,Columbus,OH,39.69802,-83.19701,shipper,0,24,167,True
+L225,Chicago Mill 225,Chicago,IL,42.10094,-87.19264,shipper,6,16,86,False
+L226,Columbus Mill 226,Columbus,OH,40.06799,-82.86773,consignee,5,22,197,True
+L227,Charlotte Mill 227,Charlotte,NC,35.18498,-81.13482,both,0,24,165,True
+L228,Houston Mill 228,Houston,TX,29.61121,-95.59396,consignee,7,22,133,True
+L229,Denver Store Hub 229,Denver,CO,39.62875,-104.45585,consignee,7,18,108,False
+L230,San Antonio Plant 230,San Antonio,TX,29.24646,-98.36568,shipper,6,18,148,False
+L231,El Paso Warehouse 231,El Paso,TX,31.87795,-106.335,consignee,5,20,69,True
+L232,San Antonio Cross-Dock 232,San Antonio,TX,29.8323,-98.32415,both,5,17,163,False
+L233,Miami Cross-Dock 233,Miami,FL,25.79914,-80.06953,both,7,18,114,True
+L234,Phoenix DC 234,Phoenix,AZ,33.32121,-112.02665,consignee,0,24,89,True
+L235,Louisville DC 235,Louisville,KY,38.18092,-85.91952,shipper,7,17,179,False
+L236,New Orleans Plant 236,New Orleans,LA,29.82877,-89.90391,consignee,6,22,90,True
+L237,Nashville Mill 237,Nashville,TN,35.84012,-86.90664,consignee,0,24,70,True
+L238,Los Angeles Plant 238,Los Angeles,CA,34.27917,-118.26331,consignee,5,22,115,True
+L239,Houston Cross-Dock 239,Houston,TX,29.86557,-95.21981,consignee,5,22,181,True
+L240,Harrisburg Warehouse 240,Harrisburg,PA,40.19493,-76.68025,consignee,8,18,115,True
+L241,Indianapolis Warehouse 241,Indianapolis,IN,39.58145,-86.25617,shipper,0,24,214,True
+L242,Little Rock Cross-Dock 242,Little Rock,AR,34.70757,-92.62177,shipper,6,22,124,False
+L243,Kansas City Cross-Dock 243,Kansas City,MO,39.2214,-94.30802,consignee,5,17,49,False
+L244,Dallas Store Hub 244,Dallas,TX,32.93508,-96.77734,shipper,5,20,114,False
+L245,Nashville Mill 245,Nashville,TN,36.32818,-87.06907,both,5,22,94,False
+L246,Columbus Warehouse 246,Columbus,OH,39.91671,-82.87506,both,8,18,138,False
+L247,Jacksonville Plant 247,Jacksonville,FL,30.37665,-81.82269,consignee,6,22,91,False
+L248,Laredo Cross-Dock 248,Laredo,TX,27.5673,-99.82068,consignee,6,20,96,False
+L249,Little Rock Cross-Dock 249,Little Rock,AR,34.73652,-92.17905,consignee,7,18,202,False
+L250,Chicago Cross-Dock 250,Chicago,IL,41.81327,-87.29152,shipper,6,20,81,False
+L251,Chicago Store Hub 251,Chicago,IL,41.74743,-87.69654,shipper,8,17,85,False
+L252,Columbus Store Hub 252,Columbus,OH,39.92174,-83.05507,consignee,7,16,139,True
+L253,Newark Cross-Dock 253,Newark,NJ,40.84453,-74.18785,consignee,7,17,152,True
+L254,Chicago Plant 254,Chicago,IL,42.16698,-87.49326,consignee,8,16,187,True
+L255,Detroit Cross-Dock 255,Detroit,MI,42.51171,-82.60872,both,7,17,195,False
+L256,Harrisburg DC 256,Harrisburg,PA,40.28756,-76.90099,consignee,6,18,108,False
+L257,Columbus Warehouse 257,Columbus,OH,40.03417,-83.07571,consignee,5,16,94,False
+L258,Charlotte Warehouse 258,Charlotte,NC,35.22406,-80.87634,shipper,8,17,77,False
+L259,Minneapolis Store Hub 259,Minneapolis,MN,45.08075,-93.50439,shipper,0,24,78,True
+L260,Los Angeles Warehouse 260,Los Angeles,CA,34.05172,-118.06899,shipper,6,18,125,True
+L261,Chicago Cross-Dock 261,Chicago,IL,41.79604,-87.50524,consignee,6,17,103,True
+L262,Minneapolis Warehouse 262,Minneapolis,MN,44.93531,-93.45186,shipper,6,22,82,False
+L263,Nashville Store Hub 263,Nashville,TN,35.64174,-86.59588,consignee,8,20,152,False
+L264,Birmingham DC 264,Birmingham,AL,33.54024,-87.13134,consignee,8,20,118,True
+L265,Harrisburg Plant 265,Harrisburg,PA,40.52755,-76.61215,both,8,22,73,True
+L266,Columbus DC 266,Columbus,OH,40.05093,-82.90047,consignee,8,20,162,True
+L267,Indianapolis Warehouse 267,Indianapolis,IN,39.71019,-86.13966,consignee,0,24,102,False
+L268,Orlando DC 268,Orlando,FL,28.4917,-81.41164,shipper,8,16,194,True
+L269,Harrisburg Store Hub 269,Harrisburg,PA,40.45091,-76.83532,both,7,18,224,True
+L270,Detroit Store Hub 270,Detroit,MI,42.47558,-83.16805,consignee,8,17,135,True
+L271,Austin Plant 271,Austin,TX,30.05519,-97.80261,both,0,24,152,False
+L272,Nashville Plant 272,Nashville,TN,36.12351,-87.00679,consignee,5,20,96,True
+L273,Newark Cross-Dock 273,Newark,NJ,40.72623,-74.27634,both,8,16,85,True
+L274,St. Louis Plant 274,St. Louis,MO,38.3763,-90.09153,both,0,24,102,True
+L275,Atlanta Warehouse 275,Atlanta,GA,33.79021,-84.44665,consignee,5,22,93,True
+L276,Charlotte Store Hub 276,Charlotte,NC,35.16446,-80.67161,shipper,8,17,104,True
+L277,Kansas City Store Hub 277,Kansas City,MO,38.8539,-94.77534,shipper,7,22,113,False
+L278,Newark Cross-Dock 278,Newark,NJ,40.59011,-74.50999,shipper,7,17,91,True
+L279,Columbus Plant 279,Columbus,OH,39.9673,-82.84304,both,7,16,122,False
+L280,Kansas City Store Hub 280,Kansas City,MO,39.18937,-94.45752,shipper,0,24,190,False
+L281,Dallas Store Hub 281,Dallas,TX,32.76139,-96.9412,shipper,8,22,52,True
+L282,Little Rock Plant 282,Little Rock,AR,34.52109,-92.46165,shipper,6,18,203,True
+L283,Newark Cross-Dock 283,Newark,NJ,40.82738,-74.19594,both,5,22,143,True
+L284,Atlanta Store Hub 284,Atlanta,GA,33.68613,-84.22839,consignee,6,18,87,True
+L285,Indianapolis Warehouse 285,Indianapolis,IN,40.18346,-85.79956,consignee,5,18,92,True
+L286,Detroit Mill 286,Detroit,MI,42.32821,-83.08973,consignee,8,20,90,True
+L287,Atlanta Store Hub 287,Atlanta,GA,33.62761,-84.46015,consignee,6,18,153,True
+L288,Miami Warehouse 288,Miami,FL,25.74693,-80.43401,both,5,17,146,True
+L289,Harrisburg DC 289,Harrisburg,PA,40.02105,-76.96249,shipper,0,24,198,False
+L290,New Orleans Store Hub 290,New Orleans,LA,29.65502,-89.84873,shipper,5,16,82,True
+L291,Houston Store Hub 291,Houston,TX,29.48797,-95.76042,both,7,16,39,True
+L292,Houston DC 292,Houston,TX,29.61818,-95.40241,both,8,20,161,False
+L293,Dallas Mill 293,Dallas,TX,32.86406,-96.72893,shipper,6,18,88,True
+L294,Los Angeles Plant 294,Los Angeles,CA,33.85707,-118.08196,both,6,16,135,False
+L295,New Orleans DC 295,New Orleans,LA,30.09631,-89.95092,consignee,0,24,143,True
+L296,Louisville DC 296,Louisville,KY,38.15096,-85.91587,both,8,16,83,False
+L297,Jacksonville Store Hub 297,Jacksonville,FL,30.19927,-81.73128,both,6,22,122,True
+L298,Harrisburg Store Hub 298,Harrisburg,PA,40.08893,-76.36402,consignee,7,16,91,True
+L299,Kansas City Cross-Dock 299,Kansas City,MO,39.2583,-94.84827,consignee,5,16,114,False
+L300,Houston Mill 300,Houston,TX,29.44269,-95.20818,shipper,8,20,208,True
+L301,Denver Mill 301,Denver,CO,39.78122,-105.22544,shipper,7,20,78,True
+L302,Phoenix DC 302,Phoenix,AZ,33.47091,-112.25231,shipper,0,24,88,True
+L303,Oklahoma City DC 303,Oklahoma City,OK,35.5712,-97.33976,consignee,0,24,197,True
+L304,New Orleans Mill 304,New Orleans,LA,30.0116,-90.01367,consignee,8,22,103,True
+L305,Los Angeles Cross-Dock 305,Los Angeles,CA,34.25264,-118.07605,shipper,0,24,90,True
+L306,Dallas Mill 306,Dallas,TX,33.09774,-97.07794,both,8,17,140,True
+L307,Chicago Warehouse 307,Chicago,IL,41.86833,-87.50725,shipper,7,18,112,True
+L308,Chicago Plant 308,Chicago,IL,41.8854,-87.32193,consignee,7,16,71,True
+L309,Phoenix Cross-Dock 309,Phoenix,AZ,33.54579,-112.25042,both,6,20,163,False
+L310,El Paso Plant 310,El Paso,TX,31.86383,-106.34398,both,7,18,77,True
+L311,Los Angeles Plant 311,Los Angeles,CA,34.02582,-118.55005,both,6,20,89,False
+L312,Los Angeles Plant 312,Los Angeles,CA,34.1594,-118.30081,both,8,16,201,True
+L313,Miami Cross-Dock 313,Miami,FL,25.62165,-80.12114,consignee,7,17,132,True
+L314,Charlotte Mill 314,Charlotte,NC,35.16119,-81.21891,shipper,7,22,102,True
+L315,Harrisburg Warehouse 315,Harrisburg,PA,40.18926,-77.13729,both,8,22,133,True
+L316,New Orleans DC 316,New Orleans,LA,29.85754,-90.24227,consignee,8,20,207,True
+L317,Little Rock Store Hub 317,Little Rock,AR,34.81451,-92.22809,shipper,8,22,125,True
+L318,Memphis Mill 318,Memphis,TN,34.90999,-89.81083,consignee,5,18,231,True
+L319,Chicago Store Hub 319,Chicago,IL,41.94696,-87.67463,both,5,18,92,True
+L320,Atlanta Store Hub 320,Atlanta,GA,33.54649,-84.36321,consignee,7,18,59,True
+L321,Miami Plant 321,Miami,FL,25.92335,-80.16148,shipper,5,22,76,True
+L322,Kansas City Plant 322,Kansas City,MO,39.22631,-94.62123,consignee,5,20,102,False
+L323,Detroit Plant 323,Detroit,MI,42.14877,-82.97738,shipper,5,18,151,False
+L324,Houston Warehouse 324,Houston,TX,30.05288,-95.10385,shipper,5,20,67,False
+L325,Indianapolis Cross-Dock 325,Indianapolis,IN,39.92253,-86.20055,consignee,8,16,96,False
+L326,Denver Mill 326,Denver,CO,39.8498,-105.307,shipper,8,16,138,True
+L327,Atlanta Cross-Dock 327,Atlanta,GA,33.87911,-84.24741,shipper,7,22,71,True
+L328,Austin Plant 328,Austin,TX,30.08761,-97.99447,consignee,8,17,113,True
+L329,Los Angeles DC 329,Los Angeles,CA,33.99306,-118.21787,consignee,7,17,79,True
+L330,Kansas City Store Hub 330,Kansas City,MO,38.99437,-94.76511,consignee,7,20,75,True
+L331,Little Rock Warehouse 331,Little Rock,AR,34.75854,-92.23424,shipper,5,20,123,False
+L332,Indianapolis Mill 332,Indianapolis,IN,39.53581,-86.17946,shipper,6,22,165,True
+L333,Miami Store Hub 333,Miami,FL,25.23799,-80.38126,shipper,5,18,177,True
+L334,Chicago DC 334,Chicago,IL,41.92976,-87.70148,both,5,17,162,True
+L335,Los Angeles Plant 335,Los Angeles,CA,33.98781,-118.54198,shipper,5,17,161,True
+L336,Columbus Warehouse 336,Columbus,OH,39.87032,-83.07638,both,6,22,88,False
+L337,Laredo Cross-Dock 337,Laredo,TX,27.49539,-99.56887,both,0,24,224,False
+L338,Dallas Plant 338,Dallas,TX,32.87092,-96.92433,both,7,20,72,False
+L339,Denver DC 339,Denver,CO,39.68951,-104.92842,both,7,22,151,False
+L340,Detroit Store Hub 340,Detroit,MI,42.13009,-82.97851,consignee,0,24,147,True
+L341,Charlotte Plant 341,Charlotte,NC,35.18906,-80.77812,consignee,7,17,113,True
+L342,Chicago Warehouse 342,Chicago,IL,41.78895,-87.66409,both,0,24,54,False
+L343,Louisville Cross-Dock 343,Louisville,KY,38.66232,-85.70827,shipper,0,24,223,True
+L344,Laredo Warehouse 344,Laredo,TX,27.84355,-99.72521,shipper,0,24,135,True
+L345,Los Angeles Warehouse 345,Los Angeles,CA,34.1391,-118.31521,consignee,5,20,135,False
+L346,Houston Store Hub 346,Houston,TX,29.66497,-95.35295,shipper,7,16,40,True
+L347,Dallas Plant 347,Dallas,TX,32.95704,-97.06042,consignee,7,16,147,True
+L348,Los Angeles Plant 348,Los Angeles,CA,34.12168,-118.32125,both,5,16,118,True
+L349,Charlotte Plant 349,Charlotte,NC,34.96198,-80.71054,consignee,7,22,140,False
+L350,Dallas Cross-Dock 350,Dallas,TX,33.02282,-96.58305,consignee,6,20,93,True
+L351,Chicago Mill 351,Chicago,IL,42.07727,-87.48894,consignee,6,16,170,False
+L352,Chicago Warehouse 352,Chicago,IL,41.66648,-87.65922,both,0,24,157,False
+L353,Atlanta DC 353,Atlanta,GA,33.64922,-84.28262,consignee,8,16,219,False
+L354,San Antonio Store Hub 354,San Antonio,TX,29.56965,-98.70881,consignee,5,20,202,False
+L355,Houston DC 355,Houston,TX,29.88792,-95.29937,shipper,7,22,90,False
+L356,New Orleans Mill 356,New Orleans,LA,29.78804,-89.9669,consignee,8,17,89,True
+L357,Indianapolis Cross-Dock 357,Indianapolis,IN,39.86479,-85.77744,consignee,8,16,92,True
+L358,Newark DC 358,Newark,NJ,40.74961,-74.00568,both,7,22,128,True
+L359,Orlando Store Hub 359,Orlando,FL,28.53467,-81.49077,both,0,24,75,False
+L360,Columbus Plant 360,Columbus,OH,40.01917,-83.34389,shipper,6,16,155,True
+L361,Little Rock Mill 361,Little Rock,AR,34.741,-92.21083,both,0,24,114,True
+L362,Houston DC 362,Houston,TX,29.829,-95.47277,shipper,8,16,83,True
+L363,Houston Cross-Dock 363,Houston,TX,29.84783,-95.495,consignee,5,17,193,False
+L364,Kansas City Warehouse 364,Kansas City,MO,39.35355,-94.76605,consignee,5,20,188,True
+L365,Birmingham DC 365,Birmingham,AL,33.43824,-86.8482,consignee,5,17,161,False
+L366,Newark Warehouse 366,Newark,NJ,40.92276,-74.06672,shipper,6,16,121,True
+L367,Atlanta Cross-Dock 367,Atlanta,GA,33.60893,-84.46308,consignee,6,22,210,False
+L368,Oklahoma City Plant 368,Oklahoma City,OK,35.44511,-97.79501,both,0,24,193,True
+L369,Columbus Warehouse 369,Columbus,OH,39.77818,-83.25509,shipper,0,24,152,True
+L370,Orlando Cross-Dock 370,Orlando,FL,28.49687,-81.24053,both,7,16,210,True
+L371,Chicago Cross-Dock 371,Chicago,IL,42.00568,-87.58652,both,6,20,211,True
+L372,Dallas Mill 372,Dallas,TX,33.00276,-96.49694,shipper,0,24,106,False
+L373,Atlanta Store Hub 373,Atlanta,GA,33.7392,-84.19908,both,6,18,108,True
+L374,Newark DC 374,Newark,NJ,40.9425,-73.88528,shipper,5,20,110,True
+L375,Columbus Warehouse 375,Columbus,OH,40.07979,-83.03308,shipper,0,24,63,False
+L376,Chicago Warehouse 376,Chicago,IL,41.81128,-87.91713,shipper,5,16,144,False
+L377,Phoenix Plant 377,Phoenix,AZ,33.59456,-112.01388,both,0,24,201,False
+L378,Kansas City Plant 378,Kansas City,MO,39.02365,-94.6104,shipper,0,24,42,False
+L379,Laredo Store Hub 379,Laredo,TX,27.75846,-99.17996,consignee,0,24,125,True
+L380,Birmingham Cross-Dock 380,Birmingham,AL,33.5851,-86.78903,both,5,16,185,False
+L381,Los Angeles Mill 381,Los Angeles,CA,34.24296,-118.17517,shipper,7,20,114,True
+L382,Memphis Cross-Dock 382,Memphis,TN,34.9109,-89.66805,shipper,5,16,129,False
+L383,Charlotte DC 383,Charlotte,NC,34.8573,-80.83683,consignee,6,20,71,True
+L384,Minneapolis DC 384,Minneapolis,MN,44.72925,-93.32015,both,7,18,111,False
+L385,Los Angeles DC 385,Los Angeles,CA,33.90473,-118.3177,shipper,6,22,82,False
+L386,Oklahoma City Mill 386,Oklahoma City,OK,35.98879,-97.27542,consignee,5,17,65,False
+L387,Chicago Plant 387,Chicago,IL,42.04257,-88.07917,shipper,8,20,97,False
+L388,Louisville Store Hub 388,Louisville,KY,38.35801,-85.49642,both,6,22,48,False
+L389,Newark Cross-Dock 389,Newark,NJ,40.52661,-74.28016,shipper,8,18,77,True
+L390,Houston Warehouse 390,Houston,TX,29.731,-95.39632,consignee,8,17,161,True
+L391,Austin Plant 391,Austin,TX,30.38722,-98.1591,shipper,8,17,155,False
+L392,Detroit Cross-Dock 392,Detroit,MI,42.49878,-83.10219,both,8,16,95,True
+L393,El Paso Cross-Dock 393,El Paso,TX,31.73865,-106.72432,consignee,6,17,143,True
+L394,Minneapolis Plant 394,Minneapolis,MN,44.85224,-93.40543,consignee,7,18,148,True
+L395,Austin Mill 395,Austin,TX,30.55008,-97.73613,consignee,0,24,77,True
+L396,Little Rock Cross-Dock 396,Little Rock,AR,34.55327,-92.49245,shipper,5,18,150,True
+L397,Laredo Store Hub 397,Laredo,TX,27.71481,-99.08174,shipper,6,20,41,True
+L398,Jacksonville DC 398,Jacksonville,FL,30.14315,-81.34766,both,7,20,148,False
+L399,Minneapolis DC 399,Minneapolis,MN,44.80455,-93.26067,consignee,7,22,135,False
+L400,Austin Warehouse 400,Austin,TX,30.58137,-97.54996,shipper,6,16,60,True
+L401,Los Angeles DC 401,Los Angeles,CA,34.02441,-118.51511,both,6,22,218,False
+L402,Miami Cross-Dock 402,Miami,FL,25.52191,-80.05601,consignee,5,16,65,True
+L403,Atlanta Warehouse 403,Atlanta,GA,33.65618,-84.72284,both,6,18,84,True
+L404,Kansas City Cross-Dock 404,Kansas City,MO,39.15562,-94.68733,consignee,0,24,90,False
+L405,St. Louis Warehouse 405,St. Louis,MO,38.64278,-90.15225,shipper,0,24,111,True
+L406,Oklahoma City Store Hub 406,Oklahoma City,OK,35.09429,-97.43522,shipper,8,20,78,False
+L407,Los Angeles Plant 407,Los Angeles,CA,33.91737,-118.18253,consignee,6,22,57,False
+L408,Charlotte Mill 408,Charlotte,NC,35.37184,-80.73643,consignee,5,22,57,True
+L409,Columbus Mill 409,Columbus,OH,40.228,-83.07186,both,5,20,91,True
+L410,Louisville Mill 410,Louisville,KY,38.4787,-85.69802,consignee,8,17,68,False
+L411,Austin Plant 411,Austin,TX,30.74942,-97.79774,both,0,24,105,False
+L412,Memphis Warehouse 412,Memphis,TN,35.40283,-90.0553,both,6,16,63,True
+L413,Kansas City DC 413,Kansas City,MO,39.23536,-94.78884,both,8,22,117,True
+L414,Memphis DC 414,Memphis,TN,35.29307,-89.81496,both,0,24,122,True
+L415,Chicago Cross-Dock 415,Chicago,IL,41.71888,-87.67484,consignee,7,22,129,True
+L416,Chicago DC 416,Chicago,IL,42.03252,-87.39322,consignee,7,18,141,True
+L417,Nashville Warehouse 417,Nashville,TN,36.13976,-86.56908,shipper,6,18,169,False
+L418,Jacksonville Store Hub 418,Jacksonville,FL,30.45755,-81.68721,shipper,7,18,88,True
+L419,Charlotte Store Hub 419,Charlotte,NC,35.27716,-80.69976,both,7,22,175,False
+L420,Indianapolis Plant 420,Indianapolis,IN,39.85412,-86.00029,consignee,8,22,49,True
+L421,Louisville Warehouse 421,Louisville,KY,38.32087,-85.9024,consignee,5,18,98,True
+L422,Phoenix Cross-Dock 422,Phoenix,AZ,33.69099,-112.22459,shipper,8,20,77,False
+L423,St. Louis Store Hub 423,St. Louis,MO,38.56691,-90.09353,both,0,24,89,True
+L424,Austin Store Hub 424,Austin,TX,29.85128,-97.98975,both,5,17,88,True
+L425,Houston Plant 425,Houston,TX,29.8182,-95.73904,shipper,5,22,160,True
+L426,St. Louis Warehouse 426,St. Louis,MO,38.89627,-90.3218,both,7,20,171,True
+L427,Atlanta Mill 427,Atlanta,GA,33.67976,-84.1374,consignee,0,24,39,False
+L428,Newark Warehouse 428,Newark,NJ,40.86307,-74.40909,consignee,6,16,112,True
+L429,Chicago Store Hub 429,Chicago,IL,41.81409,-87.47223,consignee,6,17,73,False
+L430,Minneapolis Store Hub 430,Minneapolis,MN,45.09062,-93.64238,consignee,6,17,146,False
+L431,Laredo DC 431,Laredo,TX,27.5189,-99.25129,consignee,8,22,163,True
+L432,Miami Store Hub 432,Miami,FL,25.66,-80.47897,consignee,6,22,91,True
+L433,Charlotte Store Hub 433,Charlotte,NC,35.08981,-80.90567,consignee,6,22,153,True
+L434,Jacksonville Store Hub 434,Jacksonville,FL,30.2901,-81.57829,consignee,6,20,158,True
+L435,Chicago Store Hub 435,Chicago,IL,41.78398,-87.21689,consignee,8,22,198,True
+L436,Minneapolis Warehouse 436,Minneapolis,MN,44.6181,-93.27133,consignee,7,16,176,True
+L437,Laredo Cross-Dock 437,Laredo,TX,27.23778,-98.93754,both,5,18,174,True
+L438,Dallas DC 438,Dallas,TX,32.51762,-96.23884,shipper,0,24,108,True
+L439,Oklahoma City DC 439,Oklahoma City,OK,35.37619,-97.57959,both,5,22,106,True
+L440,Memphis Store Hub 440,Memphis,TN,35.13276,-90.04699,consignee,6,16,181,False
+L441,Columbus Plant 441,Columbus,OH,39.97626,-82.99775,both,6,18,70,True
+L442,St. Louis Warehouse 442,St. Louis,MO,38.79707,-89.84449,shipper,7,22,127,True
+L443,Minneapolis Warehouse 443,Minneapolis,MN,45.14484,-93.27573,both,5,17,199,False
+L444,Phoenix Store Hub 444,Phoenix,AZ,33.48922,-111.71867,shipper,0,24,126,True
+L445,Los Angeles Warehouse 445,Los Angeles,CA,34.02094,-118.28924,both,8,22,54,False
+L446,Charlotte Cross-Dock 446,Charlotte,NC,35.20953,-80.87611,consignee,7,20,69,True
+L447,Miami Cross-Dock 447,Miami,FL,25.83559,-79.86826,shipper,0,24,136,True
+L448,St. Louis Store Hub 448,St. Louis,MO,38.85085,-89.8853,shipper,8,16,89,False
+L449,Indianapolis Plant 449,Indianapolis,IN,39.52814,-86.40144,both,6,20,91,True
+L450,Indianapolis DC 450,Indianapolis,IN,39.87998,-85.66627,shipper,0,24,138,False
+L451,Louisville Mill 451,Louisville,KY,38.20016,-85.8692,shipper,0,24,146,True
+L452,Chicago Cross-Dock 452,Chicago,IL,41.94363,-86.97608,shipper,0,24,65,True
+L453,Houston Store Hub 453,Houston,TX,29.67837,-94.9871,shipper,0,24,64,False
+L454,Houston Warehouse 454,Houston,TX,29.91881,-95.63022,shipper,7,22,88,False
+L455,Los Angeles Cross-Dock 455,Los Angeles,CA,34.00131,-118.14968,consignee,6,20,141,True
+L456,Memphis Store Hub 456,Memphis,TN,35.23207,-90.13718,shipper,0,24,215,False
+L457,Dallas Cross-Dock 457,Dallas,TX,32.95534,-96.93369,consignee,5,22,100,True
+L458,Houston Plant 458,Houston,TX,29.62242,-95.75502,both,7,20,67,True
+L459,Houston Store Hub 459,Houston,TX,29.7486,-95.17942,both,8,22,146,True
+L460,Newark Mill 460,Newark,NJ,40.89221,-74.36042,consignee,0,24,106,False
+L461,Indianapolis Mill 461,Indianapolis,IN,39.63698,-86.42989,shipper,8,16,42,False
+L462,Indianapolis Cross-Dock 462,Indianapolis,IN,39.56325,-86.11062,shipper,6,17,94,True
+L463,Indianapolis DC 463,Indianapolis,IN,39.60317,-86.22696,both,7,20,160,True
+L464,Louisville Store Hub 464,Louisville,KY,38.16447,-85.72389,consignee,0,24,65,True
+L465,Kansas City Mill 465,Kansas City,MO,39.17858,-94.5799,consignee,6,22,122,False
+L466,Nashville Cross-Dock 466,Nashville,TN,35.97831,-86.4342,both,6,22,154,True
+L467,Miami Store Hub 467,Miami,FL,25.63093,-80.00715,shipper,5,16,95,False
+L468,Newark DC 468,Newark,NJ,40.68298,-73.91195,both,5,20,72,False
+L469,Miami Cross-Dock 469,Miami,FL,25.95352,-80.00182,shipper,5,20,165,True
+L470,Los Angeles Store Hub 470,Los Angeles,CA,34.05249,-118.30782,consignee,8,16,155,True
+L471,Charlotte Mill 471,Charlotte,NC,35.32316,-80.87216,consignee,0,24,121,True
+L472,St. Louis Store Hub 472,St. Louis,MO,38.90898,-90.37544,both,8,17,147,True
+L473,Phoenix Cross-Dock 473,Phoenix,AZ,33.14928,-112.33897,consignee,7,22,188,False
+L474,Chicago Plant 474,Chicago,IL,42.34536,-87.76242,consignee,5,20,128,False
+L475,Indianapolis Store Hub 475,Indianapolis,IN,39.89519,-86.39111,shipper,8,17,80,False
+L476,Chicago Store Hub 476,Chicago,IL,41.72844,-87.35851,both,5,22,119,False
+L477,Miami Store Hub 477,Miami,FL,25.77565,-80.47215,consignee,7,22,90,False
+L478,Little Rock Store Hub 478,Little Rock,AR,34.70969,-92.29708,shipper,0,24,80,False
+L479,San Antonio Store Hub 479,San Antonio,TX,29.38882,-98.32731,both,6,17,151,True
+L480,Birmingham Plant 480,Birmingham,AL,33.80972,-86.5342,both,8,20,84,False
+L481,Little Rock Cross-Dock 481,Little Rock,AR,34.68767,-91.97391,both,7,18,207,True
+L482,Orlando Cross-Dock 482,Orlando,FL,28.6454,-80.95568,both,5,18,152,True
+L483,St. Louis Plant 483,St. Louis,MO,38.706,-90.7603,shipper,0,24,78,True
+L484,Indianapolis Plant 484,Indianapolis,IN,39.63351,-85.99773,consignee,5,22,170,True
+L485,Nashville Mill 485,Nashville,TN,36.20748,-86.80404,both,0,24,155,False
+L486,Louisville DC 486,Louisville,KY,38.14955,-85.39128,consignee,6,22,82,True
+L487,Dallas DC 487,Dallas,TX,32.59343,-96.80737,consignee,6,17,179,False
+L488,Los Angeles Cross-Dock 488,Los Angeles,CA,33.93075,-117.72102,consignee,8,16,68,True
+L489,Atlanta DC 489,Atlanta,GA,33.49745,-84.77411,shipper,6,20,188,False
+L490,Phoenix Warehouse 490,Phoenix,AZ,33.30789,-112.11487,both,8,22,107,True
+L491,Minneapolis Plant 491,Minneapolis,MN,45.05641,-93.02281,both,8,22,39,True
+L492,Charlotte DC 492,Charlotte,NC,35.28317,-81.27541,consignee,5,22,166,False
+L493,Orlando Store Hub 493,Orlando,FL,28.23547,-81.21959,shipper,5,16,109,True
+L494,Dallas Mill 494,Dallas,TX,33.08164,-96.66918,consignee,5,18,103,True
+L495,Phoenix DC 495,Phoenix,AZ,33.37754,-111.87019,shipper,8,16,152,True
+L496,Jacksonville Store Hub 496,Jacksonville,FL,30.70075,-81.43769,shipper,6,22,63,False
+L497,Memphis Mill 497,Memphis,TN,34.94076,-89.85192,consignee,5,17,150,False
+L498,Louisville Store Hub 498,Louisville,KY,38.17883,-85.46043,shipper,6,16,121,True
+L499,Dallas DC 499,Dallas,TX,33.02244,-96.79063,consignee,6,17,150,False
+L500,Los Angeles Plant 500,Los Angeles,CA,33.82871,-118.07462,consignee,5,17,130,True

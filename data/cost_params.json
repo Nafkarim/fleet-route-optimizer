@@ -1,0 +1,24 @@
+{
+  "horizon_start": "2026-10-12T00:00",
+  "horizon_days": 7,
+  "avg_speed_mph": 55,
+  "road_circuity_factor": 1.2,
+  "fuel_price_per_gallon_usd": 3.85,
+  "driver_pay_per_mile_usd": 0.62,
+  "driver_pay_per_hour_detention_usd": 25.0,
+  "deadhead_penalty_per_mile_usd": 3.5,
+  "unserved_load_penalty_usd": 5000,
+  "late_delivery_penalty_per_hour_usd": 150,
+  "late_return_to_domicile_penalty_per_hour_usd": 75,
+  "toll_estimate_per_mile_usd": 0.06,
+  "hos_rules": {
+    "max_drive_hours_per_shift": 11,
+    "max_duty_hours_per_shift": 14,
+    "required_break_after_drive_hours": 8,
+    "break_minutes": 30,
+    "off_duty_reset_hours": 10,
+    "cycle_limit_hours": 70,
+    "cycle_days": 8
+  },
+  "notes": "Deadhead penalty is intentionally high to discourage empty miles; tune it during backtesting."
+}

@@ -1,0 +1,12 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Generated plans (recreated by ./run.sh or python -m optimizer.run)
+output/
+
+# Local tooling / OS
+.claude/
+.DS_Store
