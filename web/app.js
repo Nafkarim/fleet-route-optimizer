@@ -91,14 +91,30 @@
   const tileUrl = () => `https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_${currentTheme() === "dark" ? "Dark" : "Light"}_Gray_Base/MapServer/tile/{z}/{y}/{x}`;
   const attribution = "Tiles &copy; Esri &mdash; Esri, HERE, Garmin, &copy; OpenStreetMap contributors";
   const maps = {};
+  // The static build can't load map tiles from another host, so it draws US state outlines instead.
+  let statesGeo = null;
+  const basemapStyle = () => ({ color: css("--ink-3"), opacity: 0.55, weight: 0.9, fillColor: css("--surface-2"), fillOpacity: 1 });
   function makeMap(id) {
     const m = L.map(id, { zoomSnap: 0.25, preferCanvas: true, worldCopyJump: false }).setView([36.5, -94], 4.25);
-    m._tiles = L.tileLayer(tileUrl(), { attribution, maxZoom: 12 }).addTo(m);
+    if (STATIC) {
+      m.createPane("basemap").style.zIndex = 150;
+      m.attributionControl.addAttribution("State outlines: US Census Bureau via us-atlas");
+      statesGeo = statesGeo || fetch("data/us-states.geojson").then((r) => r.json());
+      statesGeo.then((geo) => {
+        m._tiles = L.geoJSON(geo, { pane: "basemap", renderer: L.svg({ pane: "basemap" }), interactive: false, style: basemapStyle }).addTo(m);
+      });
+    } else {
+      m._tiles = L.tileLayer(tileUrl(), { attribution, maxZoom: 12 }).addTo(m);
+    }
     m._layer = L.layerGroup().addTo(m);
     return m;
   }
   function setTiles() {
-    Object.values(maps).forEach((m) => m._tiles.setUrl(tileUrl()));
+    Object.values(maps).forEach((m) => {
+      if (!m._tiles) return;
+      if (STATIC) m._tiles.setStyle(basemapStyle());
+      else m._tiles.setUrl(tileUrl());
+    });
   }
 
   // quadratic bezier so A->B and B->A lanes don't sit on top of each other

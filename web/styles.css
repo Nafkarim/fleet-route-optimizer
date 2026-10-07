@@ -93,7 +93,7 @@ svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; 
 .topbar {
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
   padding: 14px 24px; background: var(--surface); border-bottom: 1px solid var(--border);
-  position: sticky; top: 0; z-index: 1200;
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 1200;
 }
 .brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
 .logo { width: 34px; height: 34px; padding: 6px; border-radius: 9px; background: var(--accent); color: #fff; flex: none; }
