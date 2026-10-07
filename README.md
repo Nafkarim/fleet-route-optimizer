@@ -4,6 +4,8 @@ Plans one week of work for the whole fleet (1,000 trucks, 500 locations, 5,000 l
 It decides which truck hauls which load, and in what order. The goal is as few empty miles as
 possible while every truck still gets home. Results are shown in an interactive dashboard.
 
+**Live demo (read-only):** https://nafkarim.github.io/fleet-route-optimizer/
+
 ## Run it
 
 ```bash
