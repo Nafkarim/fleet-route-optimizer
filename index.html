@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en" data-static="1">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fleet Route Optimizer</title>
+  <link rel="stylesheet" href="leaflet.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="9" width="17" height="12" rx="2"/><path d="M19 13h6l4 5v3h-10z"/><circle cx="8" cy="23" r="3"/><circle cx="24" cy="23" r="3"/></svg>
+      <div>
+        <h1>Fleet Route Optimizer</h1>
+        <p class="sub" id="subtitle">Loading plan…</p>
+      </div>
+    </div>
+    <div class="top-actions">
+      <span class="status-pill" id="statusPill" hidden></span>
+      <button class="btn ghost icon-btn" id="themeBtn" title="Switch light / dark" aria-label="Switch light or dark theme">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg>
+      </button>
+      <button class="btn primary" id="settingsBtn">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+        Settings &amp; re-optimize
+      </button>
+    </div>
+  </header>
+
+  <section class="kpis" id="kpis" aria-label="Key results"></section>
+
+  <nav class="tabs" role="tablist">
+    <button role="tab" class="tab active" data-tab="overview">Network overview</button>
+    <button role="tab" class="tab" data-tab="trucks">Truck routes</button>
+    <button role="tab" class="tab" data-tab="uncovered">Uncovered loads <span class="count" id="uncCount"></span></button>
+    <button role="tab" class="tab" data-tab="how">How it works</button>
+  </nav>
+
+  <main>
+    <!-- OVERVIEW -->
+    <section class="panel-view active" id="view-overview">
+      <div class="overview-grid">
+        <div class="card map-card">
+          <div class="card-head">
+            <div>
+              <h2>Where the trucks drive</h2>
+              <p class="hint">Each line is a city-to-city lane; thicker = more trips. Hover a lane for details.</p>
+            </div>
+            <div class="seg" role="group" aria-label="Plan to show">
+              <button class="seg-btn active" data-plan="opt">Optimized plan</button>
+              <button class="seg-btn" data-plan="base">Naive dispatch</button>
+            </div>
+          </div>
+          <div class="map-wrap">
+            <div id="overviewMap" class="map"></div>
+            <div class="map-legend">
+              <label><input type="checkbox" id="showLoaded" checked> <span class="sw loaded"></span> Hauling a load</label>
+              <label><input type="checkbox" id="showEmpty" checked> <span class="sw empty"></span> Driving empty</label>
+              <span class="legend-note">● terminal / home base</span>
+            </div>
+          </div>
+        </div>
+        <div class="side-charts">
+          <div class="card">
+            <h2>Empty miles by home base</h2>
+            <p class="hint">Share of each city's miles driven with an empty trailer. Lower is better.</p>
+            <div class="legend-inline"><span><i class="sw" style="background:var(--series-opt)"></i>Optimized</span><span><i class="sw" style="background:var(--series-base)"></i>Naive dispatch</span></div>
+            <div class="chart-box tall"><canvas id="cityChart"></canvas></div>
+          </div>
+        </div>
+        <div class="card">
+          <h2>Trucks on the road through the week</h2>
+          <p class="hint">How many trucks are out on a tour, and how many are hauling a load right now.</p>
+          <div class="legend-inline"><span><i class="sw" style="background:var(--series-opt)"></i>On a tour (optimized)</span><span><i class="sw" style="background:var(--series-3)"></i>Hauling a load</span><span><i class="sw dashed" style="border-color:var(--series-base)"></i>On a tour (naive)</span></div>
+          <div class="chart-box"><canvas id="timeChart"></canvas></div>
+        </div>
+        <div class="card">
+          <h2>Loads by trailer type</h2>
+          <p class="hint">Delivered vs. left uncovered. Hover a bar for counts.</p>
+          <div class="legend-inline"><span><i class="sw" style="background:var(--series-opt)"></i>Delivered</span><span><i class="sw" style="background:var(--series-2)"></i>Uncovered</span><span><i class="sw" style="background:var(--series-base)"></i>Excluded by settings</span></div>
+          <div class="chart-box"><canvas id="trailerChart"></canvas></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUCKS -->
+    <section class="panel-view" id="view-trucks">
+      <div class="trucks-grid">
+        <aside class="card truck-list-card">
+          <div class="filters">
+            <input type="search" id="truckSearch" placeholder="Search truck or city…" aria-label="Search trucks">
+            <div class="filter-row">
+              <select id="fTrailer" aria-label="Trailer type"><option value="">All trailers</option></select>
+              <select id="fCity" aria-label="Home base"><option value="">All home bases</option></select>
+            </div>
+            <div class="filter-row">
+              <select id="fStatus" aria-label="Status">
+                <option value="">All trucks</option>
+                <option value="busy">Dispatched</option>
+                <option value="idle">Stayed home</option>
+              </select>
+              <select id="fSort" aria-label="Sort by">
+                <option value="loads">Most loads</option>
+                <option value="empty">Highest empty %</option>
+                <option value="emptyLow">Lowest empty %</option>
+                <option value="miles">Most miles</option>
+                <option value="id">Truck ID</option>
+              </select>
+            </div>
+            <p class="hint" id="truckListCount"></p>
+          </div>
+          <div class="truck-list" id="truckList" role="listbox" aria-label="Trucks"></div>
+        </aside>
+        <div class="truck-main">
+          <div class="card map-card">
+            <div class="map-wrap">
+              <div id="truckMap" class="map"></div>
+              <div class="map-legend">
+                <span><span class="sw loaded"></span> Hauling a load</span>
+                <span><span class="sw empty"></span> Driving empty</span>
+                <span><span class="home-dot">⌂</span> Home base</span>
+                <span><span class="stop-dot">1</span> Stop order</span>
+              </div>
+            </div>
+          </div>
+          <div class="card" id="truckDetail">
+            <div class="empty-state">Pick a truck on the left to see its route, schedule and stops.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- UNCOVERED -->
+    <section class="panel-view" id="view-uncovered">
+      <div class="card">
+        <h2>Loads the plan does not cover</h2>
+        <p class="hint">Every load in the week is listed here if no truck takes it, with the reason in plain language.</p>
+        <div class="reason-tiles" id="reasonTiles"></div>
+        <div class="filter-row wide">
+          <input type="search" id="uncSearch" placeholder="Search load ID or city…" aria-label="Search uncovered loads">
+          <select id="uTrailer" aria-label="Trailer type"><option value="">All trailers</option></select>
+          <select id="uPriority" aria-label="Priority"><option value="">All priorities</option><option>critical</option><option>high</option><option>standard</option></select>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table" id="uncTable">
+            <thead><tr><th>Load</th><th>Lane</th><th>Trailer</th><th>Priority</th><th class="num">Miles</th><th class="num">Rate</th><th>Pickup window</th><th>Why it's uncovered</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <button class="btn ghost" id="uncMore" hidden>Show more</button>
+      </div>
+    </section>
+
+    <!-- HOW -->
+    <section class="panel-view" id="view-how">
+      <div class="how-grid">
+        <div class="card prose">
+          <h2>What this tool does</h2>
+          <p>It plans one week of work for the whole fleet. It decides <strong>which truck hauls which load, in what order</strong>, so the fleet drives as few empty miles as possible while still covering as many loads as it can.</p>
+          <p>A truck can take any number of loads in any order, as long as every rule below holds. Each plan is checked against the rules before it is shown.</p>
+          <h3>The rules every route follows</h3>
+          <ul class="checks">
+            <li><b>Back home.</b> Every truck ends its tour at its own home terminal, within its allowed tour length (3, 5 or 7 days).</li>
+            <li><b>Right trailer.</b> Reefer loads go on reefers, flatbed on flatbeds, and so on. The weight fits.</li>
+            <li><b>On time.</b> Pickups happen inside the pickup window and deliveries by the deadline. Docks are only visited while they are open.</li>
+            <li><b>Driver hours (HOS).</b> At most 11 h driving and a 14 h duty window per shift. A 30 min break after 8 h of driving, and 10 h off between shifts. A 70 h weekly cycle. Team trucks can run longer.</li>
+            <li><b>One truck per load.</b> No load is double-booked.</li>
+          </ul>
+        </div>
+        <div class="card prose">
+          <h2>How the plan is found</h2>
+          <ol class="steps">
+            <li><b>Build a first plan.</b> Loads are taken in pickup order. Each goes to the truck where it adds the least cost: a truck that is already nearby, or that will be heading home.</li>
+            <li><b>Improve it, thousands of times.</b> The optimizer repeatedly pulls out a group of related loads, such as all loads around one city on one day, or a few poor routes. It re-inserts them in the cheapest way and keeps the change if the whole plan got better.</li>
+            <li><b>Compare.</b> The same week is also planned the "naive" way: each load goes to the closest free truck. That gives a fair yardstick.</li>
+          </ol>
+          <h3>What "cost" means here</h3>
+          <p>Operating cost per mile, plus a <b>penalty for every empty mile</b> (default $3.50/mi) to push toward full trailers. Waiting time and lateness are charged too. Leaving a load uncovered costs its lost revenue plus a service penalty, scaled by priority and by the chance the load gets cancelled. You can change these in <b>Settings</b>.</p>
+          <h3>Reading the colors</h3>
+          <div class="legend-list">
+            <span><i class="sw loaded"></i>Driving with a load</span>
+            <span><i class="sw empty"></i>Driving empty (deadhead)</span>
+            <span><i class="sw" style="background:var(--g-dock)"></i>Loading / unloading at a dock</span>
+            <span><i class="sw" style="background:var(--g-wait)"></i>Waiting for a window or dock</span>
+            <span><i class="sw hatch"></i>Required rest or break</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- SETTINGS DRAWER -->
+  <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+  <aside class="drawer" id="drawer" aria-hidden="true" aria-label="Settings">
+    <div class="drawer-head">
+      <h2>Settings</h2>
+      <button class="btn ghost icon-btn" id="drawerClose" aria-label="Close settings">✕</button>
+    </div>
+    <p class="hint">Change the trade-offs, then press <b>Re-optimize</b> to plan the week again. The current plan stays on screen until the new one is ready.</p>
+    <form id="settingsForm">
+      <div class="field">
+        <label for="sDeadhead">Penalty per empty mile <output id="oDeadhead"></output></label>
+        <input type="range" id="sDeadhead" name="deadhead_penalty" min="0" max="10" step="0.25">
+        <p class="hint">Higher pushes harder for full trailers, even if some loads are left uncovered.</p>
+      </div>
+      <div class="field">
+        <label for="sUnserved">Penalty for leaving a load uncovered <output id="oUnserved"></output></label>
+        <input type="range" id="sUnserved" name="unserved_penalty" min="0" max="20000" step="500">
+        <p class="hint">Added on top of the load's lost revenue. Higher = cover more loads, even with more empty driving.</p>
+      </div>
+      <div class="field">
+        <label for="sLateDel">Allow late deliveries up to <output id="oLateDel"></output></label>
+        <input type="range" id="sLateDel" name="late_delivery_allow_h" min="0" max="12" step="1">
+        <p class="hint">0 = never late. Otherwise lateness is allowed but charged $150 per hour.</p>
+      </div>
+      <div class="field">
+        <label for="sLateRet">Allow trucks home late up to <output id="oLateRet"></output></label>
+        <input type="range" id="sLateRet" name="late_return_allow_h" min="0" max="24" step="1">
+        <p class="hint">0 = always home within the tour limit. Otherwise charged $75 per hour late.</p>
+      </div>
+      <div class="field">
+        <label for="sCancel">Skip loads with cancellation risk above <output id="oCancel"></output></label>
+        <input type="range" id="sCancel" name="max_cancel_prob" min="0.05" max="1" step="0.05">
+      </div>
+      <div class="field toggle">
+        <label><input type="checkbox" id="sTentative" name="include_tentative"> Include tentative (not yet confirmed) loads</label>
+      </div>
+      <div class="field">
+        <label for="sTime">Time to spend improving <output id="oTime"></output></label>
+        <input type="range" id="sTime" name="time_limit" min="10" max="300" step="5">
+        <p class="hint">Longer searches usually find slightly better plans.</p>
+      </div>
+      <div class="drawer-actions">
+        <button type="button" class="btn ghost" id="resetSettings">Reset to defaults</button>
+        <button type="submit" class="btn primary" id="runBtn">Re-optimize</button>
+      </div>
+    </form>
+  </aside>
+
+  <!-- PROGRESS -->
+  <div class="progress-toast" id="progress" hidden role="status" aria-live="polite">
+    <div class="progress-text"><b id="progPhase">Starting…</b><span id="progDetail"></span></div>
+    <div class="bar"><div class="fill" id="progFill"></div></div>
+  </div>
+
+  <div class="tooltip" id="tooltip" hidden></div>
+
+  <!-- DATA ASSISTANT -->
+  <button class="chat-fab" id="chatFab" aria-controls="chatPanel" aria-expanded="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 11h.01M12 11h.01M15.5 11h.01"/></svg>
+    Ask about your data
+  </button>
+  <section class="chat-panel" id="chatPanel" aria-hidden="true" aria-label="Data assistant">
+    <header class="chat-head">
+      <div>
+        <div class="chat-title">Data assistant</div>
+        <div class="chat-sub">Answers from this week's plan</div>
+      </div>
+      <div class="chat-actions">
+        <button class="btn ghost icon-btn" id="chatNew" title="New conversation" aria-label="Start a new conversation">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <button class="btn ghost icon-btn" id="chatClose" title="Close" aria-label="Close assistant">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+    </header>
+    <div class="chat-log" id="chatLog" aria-live="polite"></div>
+    <form class="chat-form" id="chatForm">
+      <textarea id="chatInput" rows="1" placeholder="Ask about trucks, loads, cities, costs…" aria-label="Your question"></textarea>
+      <button type="submit" class="btn primary icon-btn" id="chatSend" aria-label="Send">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </form>
+    <p class="chat-foot">AI answers can be wrong. Check key numbers in the dashboard.</p>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js"></script>
+  <script src="app.js"></script>
+  <script src="chat.js"></script>
+</body>
+</html>
