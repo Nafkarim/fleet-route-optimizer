@@ -30,6 +30,20 @@ Other commands:
 | **Uncovered loads** | Every load not covered, with the reason in plain language: fleet busy, not worth the empty miles, deadline too tight for a solo driver, or out of reach. |
 | **Settings** | Change the empty-mile penalty, the uncovered-load penalty, how late deliveries or returns may be, whether to skip tentative or high-risk loads, and how long to search. Then click **Re-optimize**. |
 
+## Data assistant (optional)
+
+Click **Ask about your data** to chat with an assistant powered by Claude. It answers questions about the current
+plan, such as "why are so many loads uncovered?", "walk me through T0681's week" or "which lanes have the most
+empty repositioning?". It looks the numbers up with tools that read the plan data. Truck and load IDs in its answers
+are links into the dashboard.
+
+To turn it on, create a `.env` file in the project folder with your
+[Anthropic API key](https://console.anthropic.com/), then restart the dashboard (`.env` is git-ignored):
+
+```
+ANTHROPIC_API_KEY=your-key-here
+```
+
 ## Rules every plan follows
 
 - Every tour starts at the truck's start location and **ends at its home base**, within `max_tour_days`.
@@ -53,7 +67,8 @@ with simulated annealing. The objective is operating cost + empty-mile penalty +
 | `optimizer/solver.py` | construction + LNS |
 | `optimizer/baseline.py` | naive dispatcher for comparison |
 | `optimizer/kpis.py` | KPIs, uncovered-load reasons, dashboard JSON |
-| `server/app.py` | FastAPI backend (`/api/plan`, `/api/truck/{id}`, `/api/solve`, `/api/status`) |
+| `server/app.py` | FastAPI backend (`/api/plan`, `/api/truck/{id}`, `/api/solve`, `/api/status`, `/api/chat`) |
+| `server/chat.py` | data assistant: Claude tool loop + plan-query tools |
 | `web/` | dashboard (vanilla JS, Leaflet, Chart.js) |
 | `tests/` | independent feasibility checks on the solved plan |
 

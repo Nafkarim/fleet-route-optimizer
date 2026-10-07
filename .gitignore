@@ -10,3 +10,6 @@ output/
 # Local tooling / OS
 .claude/
 .DS_Store
+
+# Secrets (Anthropic API key for the data assistant)
+.env

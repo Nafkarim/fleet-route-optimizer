@@ -688,6 +688,7 @@
     S.detailCache = {};
     H0 = new Date(P.horizon_start);
     renderAll();
+    window.dispatchEvent(new CustomEvent("fro:plan", { detail: { kpis: P.kpis } }));
     return true;
   }
 
@@ -765,6 +766,34 @@
     clearTimeout(resizeT);
     resizeT = setTimeout(() => { if (S.selected && S.detailCache[S.selected]) renderGantt(S.detailCache[S.selected]); }, 150);
   });
+
+  // ------------------------------------------------------------------ bridge for the chat panel
+  const showTab = (name) => $(`.tab[data-tab="${name}"]`).click();
+  window.FRO = {
+    openTruck(id) {
+      if (!S.plan || !S.plan.trucks.some((t) => t.id === id)) return;
+      ["#truckSearch", "#fTrailer", "#fCity", "#fStatus"].forEach((s) => { $(s).value = ""; });
+      renderTruckList();
+      showTab("trucks");
+      selectTruck(id);
+      setTimeout(() => {
+        const row = $(`.truck-row[data-id="${id}"]`);
+        if (row) row.scrollIntoView({ block: "nearest" });
+        $("#view-trucks").scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 60);
+    },
+    openUncovered(query) {
+      if (!S.plan) return;
+      S.uncFilter = { reason: "", q: query || "", trailer: "", priority: "", limit: 100 };
+      $("#uncSearch").value = query || "";
+      $("#uTrailer").value = "";
+      $("#uPriority").value = "";
+      showTab("uncovered");
+      renderReasonTiles();
+      renderUncovered();
+      $("#view-uncovered").scrollIntoView({ behavior: "smooth", block: "start" });
+    },
+  };
 
   // ------------------------------------------------------------------ boot
   (async function boot() {

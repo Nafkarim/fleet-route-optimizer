@@ -3,3 +3,4 @@ uvicorn>=0.29
 numpy>=1.26
 pandas>=2.2
 pytest>=8
+anthropic>=1.11

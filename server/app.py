@@ -11,21 +11,42 @@ import traceback
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
+from optimizer.data import load_problem  # noqa: E402
 from optimizer.run import OUT_DIR, print_kpis, run_plan, save  # noqa: E402
 from optimizer.solver import SolveSettings  # noqa: E402
+from server.chat import MODEL, ChatService, PlanData, credentials_configured, load_dotenv  # noqa: E402
+
+load_dotenv()
 
 app = FastAPI(title="Fleet Route Optimizer")
 
 _lock = threading.Lock()
 _state = {"summary": None, "detail": None, "running": False, "phase": "Idle", "pct": 0.0,
-          "objective": None, "iterations": 0, "error": None}
+          "objective": None, "iterations": 0, "error": None, "plan_version": 0}
+_chat_cache: dict = {"version": -1, "data": None, "problem": None}
+
+
+def _plan_data() -> tuple[PlanData, str]:
+    """Chat view of the current plan; rebuilt whenever a new plan is loaded."""
+    with _lock:
+        summary, detail, version = _state["summary"], _state["detail"], _state["plan_version"]
+    if summary is None:
+        raise HTTPException(404, "No plan yet - the optimizer is still running.")
+    if _chat_cache["version"] != version:
+        if _chat_cache["problem"] is None:
+            _chat_cache["problem"] = load_problem()
+        _chat_cache.update(version=version, data=PlanData(summary, detail, _chat_cache["problem"]))
+    return _chat_cache["data"], str(version)
+
+
+chat_service = ChatService(_plan_data)
 
 
 class SolveRequest(BaseModel):
@@ -49,7 +70,8 @@ def _solve(req: SolveRequest):
         save(summary, detail)
         print_kpis(summary)
         with _lock:
-            _state.update(summary=summary, detail=detail, phase="Done", pct=100.0, error=None)
+            _state.update(summary=summary, detail=detail, phase="Done", pct=100.0, error=None,
+                          plan_version=_state["plan_version"] + 1)
     except Exception as e:  # surface solver errors in the UI instead of dying silently
         traceback.print_exc()
         with _lock:
@@ -107,6 +129,42 @@ def solve(req: SolveRequest):
     if not _start(req):
         raise HTTPException(409, "The optimizer is already running.")
     return {"started": True}
+
+
+@app.get("/api/load/{load_id}")
+def load_lookup(load_id: str):
+    data, _ = _plan_data()
+    lid = load_id.strip().upper()
+    if lid in data.load_truck:
+        return {"load_id": lid, "truck_id": data.load_truck[lid][0]}
+    if lid in data.uncovered:
+        return {"load_id": lid, "uncovered": True}
+    raise HTTPException(404, f"Unknown load {load_id}")
+
+
+class ChatRequest(BaseModel):
+    message: str = Field(..., min_length=1, max_length=4000)
+    conversation_id: str | None = None
+
+
+@app.get("/api/chat/status")
+def chat_status():
+    return {"configured": credentials_configured(), "model": MODEL}
+
+
+@app.post("/api/chat")
+def chat(req: ChatRequest):
+    if not credentials_configured():
+        raise HTTPException(503, "No Anthropic API key configured. Add ANTHROPIC_API_KEY to .env and restart.")
+    _plan_data()  # 404 early if there is no plan yet
+
+    def gen():
+        for event in chat_service.stream(req.conversation_id, req.message.strip()):
+            yield json.dumps(event) + "\n"
+        yield json.dumps({"type": "done"}) + "\n"
+
+    return StreamingResponse(gen(), media_type="application/x-ndjson",
+                             headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"})
 
 
 WEB = ROOT / "web"
