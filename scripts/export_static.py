@@ -27,7 +27,7 @@ def main(dest: Path) -> None:
     html = html.replace('<html lang="en">', '<html lang="en" data-static="1">', 1)
     html = html.replace('href="/static/', 'href="').replace('src="/static/', 'src="')
     (dest / "index.html").write_text(html)
-    for name in ("app.js", "styles.css"):
+    for name in ("app.js", "chat.js", "styles.css"):
         shutil.copy(WEB / name, dest / name)
     shutil.copy(plan, dest / "data" / "plan.json")
     shutil.copy(det, dest / "data" / "details.json")

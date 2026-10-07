@@ -6,6 +6,12 @@
   const panel = $("#chatPanel"), fab = $("#chatFab"), log = $("#chatLog"), form = $("#chatForm"), input = $("#chatInput");
   const sendBtn = $("#chatSend");
 
+  // The static read-only build (scripts/export_static.py) has no backend to chat with.
+  if (document.documentElement.dataset.static === "1") {
+    fab.hidden = true;
+    return;
+  }
+
   const SUGGESTIONS = [
     "Give me the big picture: how good is this plan?",
     "Why are so many loads uncovered?",
